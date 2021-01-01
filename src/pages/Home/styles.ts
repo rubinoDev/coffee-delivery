@@ -6,6 +6,10 @@ export const HomeHeader = styled.section`
 
   margin-top: 13rem;
 
+  img{
+    object-fit: contain;
+  }
+
   @media (max-width: 1024px){
     flex-direction: column-reverse;
     margin-top: 8rem;

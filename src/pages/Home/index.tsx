@@ -8,7 +8,6 @@ import { Stats } from '../../components/Stats'
 
 import { CoffeesMenu, HomeHeader, HomeHeaderContent } from './styles'
 
-
 export function Home(){
   const { products } = useContext(ProductsContext)
 
