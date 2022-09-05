@@ -97,7 +97,28 @@ export function Checkout(){
                 </button>
               </div>
             </div>
+
+            <strong>R$ 9,90</strong>
           </div>
+
+          <div>
+            <p>Total de itens</p>
+            <p>R$ 29,70</p>
+          </div>
+
+          <div>
+            <p>Entrega</p>
+            <p>R$ 3,50</p>
+          </div>
+
+          <div>
+            <strong>Total</strong>
+            <strong>R$ 33,20</strong>
+          </div>
+
+          <button>
+            Confirmar pedido
+          </button>
 
         </div>
       </div>
