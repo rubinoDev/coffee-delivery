@@ -38,5 +38,25 @@ export const HomeHeaderContent = styled.div`
 `
 
 export const CoffeesMenu = styled.section` 
-  
+  div{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  h3{
+    margin-top: 10rem;
+    margin-bottom: 6rem;
+
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 3.2rem;
+    line-height: 130%;
+
+    display: flex;
+    align-items: center;
+
+    color: ${props => props.theme.baseSubtitle};
+  }
 `

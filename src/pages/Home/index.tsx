@@ -1,7 +1,8 @@
-import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import CoffeeBg from '../../assets/coffee-bg.png'
+import { CoffeesApi } from '../../coffeesApi'
+import { CoffeeCard } from '../../components/CoffeeCard'
 import { Stats } from '../../components/Stats'
-import { HomeHeader, HomeHeaderContent } from './styles'
+import { CoffeesMenu, HomeHeader, HomeHeaderContent } from './styles'
 
 export function Home(){
   return(
@@ -19,7 +20,17 @@ export function Home(){
         <img src={CoffeeBg} alt=''/>
       </HomeHeader>
 
-      
+      <CoffeesMenu>
+        <h3>Nossos cafés</h3>
+        <div>
+          {CoffeesApi.map(coffee=> (
+            <CoffeeCard 
+              key={coffee.id}
+              coffee={coffee}
+            />
+          ))}
+        </div>
+      </CoffeesMenu>
     </main>
   )
 }
