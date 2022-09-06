@@ -106,6 +106,14 @@ export const BuyContainer = styled.div`
       color: ${props => props.theme.purple};
       font-size: 2rem;
       cursor: pointer;
+
+      transition: color 200ms;
+
+
+      &:hover{
+        color: ${props => props.theme.purpleDark};
+
+      }
     }
   }
 
@@ -115,6 +123,8 @@ export const BuyContainer = styled.div`
     padding: .5rem;
     border-radius: 6px;
     cursor: pointer;
+    transition: background-color 200ms;
+
 
     &:hover{
       background-color: ${props => props.theme.purple};

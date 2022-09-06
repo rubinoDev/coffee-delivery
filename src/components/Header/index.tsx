@@ -13,13 +13,11 @@ export function Header(){
 
         <div>
           <Location>
-            <NavLink to="/">
               <MapPin 
                 size={28} 
                 weight="fill"
                 color={"hsla(259, 92%, 63%, 1)"}
               />
-            </NavLink>
             <strong>Porto Alegre, RS</strong>
           </Location>
 

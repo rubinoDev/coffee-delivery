@@ -16,6 +16,7 @@ export const HeaderContainer = styled.header`
 `
 
 export const Location = styled.div`
+  cursor: default;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,4 +45,10 @@ export const CartIcon = styled.div`
   border-radius: 8px;
 
   cursor: pointer;
+
+  transition: filter 200ms;
+
+  &:hover{
+    filter: brightness(1.03);
+  }
 `

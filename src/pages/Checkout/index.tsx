@@ -1,5 +1,7 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
-import { CheckoutContainer, FormContainer, Payment } from "./styles";
+import { CheckoutContainer, CoffeeSelected, CoffeesSelectedContainer, FormContainer, Payment } from "./styles";
+import { CoffeesApi } from '../../coffeesApi';
+import { NavLink } from "react-router-dom";
 
 export function Checkout(){
   return(
@@ -80,9 +82,9 @@ export function Checkout(){
 
       <div>
         <h2>Cafés selecionados</h2>
-        <div>
-          <div>
-            <img/>
+        <CoffeesSelectedContainer>
+          <CoffeeSelected>
+            <img src={CoffeesApi[0].image}/>
             <div>
               <p>Expresso Tradicional</p>
               <div>
@@ -107,7 +109,7 @@ export function Checkout(){
             </div>
 
             <strong>R$ 9,90</strong>
-          </div>
+          </CoffeeSelected>
 
           <div>
             <p>Total de itens</p>
@@ -124,11 +126,14 @@ export function Checkout(){
             <strong>R$ 33,20</strong>
           </div>
 
-          <button>
-            Confirmar pedido
-          </button>
+          <NavLink className="confirmRequestLink" to="/success">
+            <div>
+              Confirmar pedido
+            </div>
 
-        </div>
+          </NavLink>
+
+        </CoffeesSelectedContainer>
       </div>
         
       
