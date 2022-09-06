@@ -5,7 +5,7 @@ interface Coffee{
   id: number;
   title: string;
   description: string;
-  label: [string];
+  label: string[];
   image: string;
   price: string;
 }
