@@ -1,20 +1,18 @@
 import { ShoppingCart } from "phosphor-react";
+import { useContext } from "react";
+import { Coffee, ProductsContext } from "../../contexts/ProductsContext/ProductsContext";
 import { BuyContainer, CardContainer, LabelsContainer } from "./styles";
-
-interface Coffee{
-  id: number;
-  title: string;
-  description: string;
-  label: string[];
-  image: string;
-  price: string;
-}
 
 interface CoffeeCardProps{
   coffee: Coffee;
 }
 
 export function CoffeeCard({coffee}: CoffeeCardProps){
+  const { 
+    handleAddProductQuantity,
+    handleRemoveProductQuantity
+  } = useContext(ProductsContext)
+
   return(
     <CardContainer>
       <img src={coffee.image} alt={coffee.title}/>  
@@ -36,11 +34,15 @@ export function CoffeeCard({coffee}: CoffeeCardProps){
 
         <div>
           <div>
-            <button>
+            <button
+              onClick={() => handleRemoveProductQuantity(coffee.id)}
+            >
               -
             </button>
-            1
-            <button>
+            {coffee.quantity}
+            <button
+              onClick={() => handleAddProductQuantity(coffee.id)}
+            >
               +
             </button>
           </div>
