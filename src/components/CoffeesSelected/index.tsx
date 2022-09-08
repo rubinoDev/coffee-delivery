@@ -1,21 +1,26 @@
 import { Trash } from "phosphor-react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { CoffeesApi } from '../../coffeesApi';
+import { CartContext } from "../../contexts/CartContext/CartContext";
 import { CoffeeSelected, CoffeesSelectedContainer } from "./styles";
 
 export function CoffeesSelected(){
+  const { cart } = useContext(CartContext)
+
   return(
     <CoffeesSelectedContainer>
-          <CoffeeSelected>
-            <img src={CoffeesApi[0].image}/>
+          {cart.map(coffee => (
+            <CoffeeSelected>
+            <img src={coffee.image}/>
             <div>
-              <p>Expresso Tradicional</p>
+              <p>{coffee.title}</p>
               <div>
                 <div>
                   <button>
                     -
                   </button>
-                  1
+                  {coffee.quantity}
                   <button>
                     +
                   </button>
@@ -31,8 +36,9 @@ export function CoffeesSelected(){
               </div>
             </div>
 
-            <strong>R$ 9,90</strong>
+            <strong>R$ {coffee.price}</strong>
           </CoffeeSelected>
+          ))}
 
           <div>
             <p>Total de itens</p>

@@ -7,7 +7,7 @@ export const CoffeesSelectedContainer = styled(BaseCheckoutContainer)`
   flex-direction: column;
   gap: 2.5rem;
 
-  >div:not(:first-child){
+  >div{
     width:100%;
     display: flex;
     justify-content: space-between;
@@ -63,7 +63,6 @@ export const CoffeesSelectedContainer = styled(BaseCheckoutContainer)`
 
 export const CoffeeSelected = styled.div`
   display: flex;
-  gap: 2rem;
   width: 100%;
   border-bottom: 1px solid ${props => props.theme.baseButton};
 

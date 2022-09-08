@@ -2,8 +2,11 @@ import { CheckoutContainer } from "./styles";
 import { Form } from "../../components/Form";
 import { Payment } from "../../components/Payment";
 import { CoffeesSelected } from "../../components/CoffeesSelected";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext/CartContext";
 
 export function Checkout(){
+
   return(
     <CheckoutContainer>
       <div>

@@ -1,19 +1,31 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
+import { Coffee, ProductsContext } from "../ProductsContext/ProductsContext";
 
-
+interface CartContextProps{
+  cart: Coffee[];
+  handleAddCoffeeToCart: (id: number) => void;
+}
 
 interface CartContextProviderProps{
   children: ReactNode;
 }
 
-export const CartContext = createContext({})
+export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({children}: CartContextProviderProps){
-  const [cart, setCart] = useState([])
+  const { products } = useContext(ProductsContext)
+  const [cart, setCart] = useState<Coffee[]>([])
+
+  function handleAddCoffeeToCart(id: number){
+    const productFiltered = products.filter( product => product.id === id);
+    setCart(prevState => [...prevState, productFiltered[0]])
+  }
+
 
   return(
     <CartContext.Provider value={{
-      cart
+      cart,
+      handleAddCoffeeToCart
       }}>
         { children }
       </CartContext.Provider>
