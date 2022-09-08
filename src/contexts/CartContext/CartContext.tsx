@@ -19,19 +19,18 @@ export function CartContextProvider({children}: CartContextProviderProps){
 
   function handleAddCoffeeToCart(id: number){
     const updatedCart = [...cart];
-    const isCartEmpty = updatedCart.length === 0;
     const productFiltered = products.filter( product => product.id === id);
     const productIsAlreadyInCart = updatedCart.find(product => product.id === productFiltered[0].id);
 
-    isCartEmpty ? setCart(productFiltered) 
-    : productIsAlreadyInCart ? setCart(prevState => 
-        prevState.map(item =>{
-          const quantityUpdated = item.quantity + productFiltered[0].quantity;
-          return {...item, quantity: quantityUpdated}
+    productIsAlreadyInCart ? setCart(prevState => 
+      prevState.map(item =>{
+        const quantityUpdated = item.quantity + productFiltered[0].quantity;
+        return item.id === productFiltered[0].id ?
+        {...item, quantity: quantityUpdated}
+        : item 
     }))
     : setCart(prevState => [...prevState, productFiltered[0]])    
   }
-
 
   return(
     <CartContext.Provider value={{
