@@ -6,7 +6,11 @@ import { CartContext } from "../../contexts/CartContext/CartContext";
 import { CoffeeSelected, CoffeesSelectedContainer } from "./styles";
 
 export function CoffeesSelected(){
-  const { cart } = useContext(CartContext)
+  const { cart, 
+    handleAddProductQuantityInCart,
+    handleRemoveProductQuantityInCart,
+    handleRemoveProductFromCart
+  } = useContext(CartContext)
 
   return(
     <CoffeesSelectedContainer>
@@ -17,16 +21,22 @@ export function CoffeesSelected(){
               <p>{coffee.title}</p>
               <div>
                 <div>
-                  <button>
+                  <button
+                  onClick={()=>handleRemoveProductQuantityInCart(coffee.id) }
+                  >
                     -
                   </button>
                   {coffee.quantity}
-                  <button>
+                  <button
+                    onClick={()=>handleAddProductQuantityInCart(coffee.id) }
+                  >
                     +
                   </button>
                 </div>
 
-                <button>
+                <button
+                  onClick={()=>handleRemoveProductFromCart(coffee.id) }
+                >
                   <Trash
                     color="hsla(259, 92%, 63%, 1)"
                     size={20}

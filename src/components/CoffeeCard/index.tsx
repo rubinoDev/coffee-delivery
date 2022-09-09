@@ -15,7 +15,7 @@ export function CoffeeCard({coffee}: CoffeeCardProps){
     handleRemoveProductQuantity
   } = useContext(ProductsContext)
 
-  const { handleAddCoffeeToCart } = useContext( CartContext )
+  const { handleAddProductToCart } = useContext( CartContext )
 
   return(
     <CardContainer>
@@ -52,7 +52,7 @@ export function CoffeeCard({coffee}: CoffeeCardProps){
           </div>
 
             <button
-              onClick={() => handleAddCoffeeToCart(coffee.id)}
+              onClick={() => handleAddProductToCart(coffee.id)}
             >
               <ShoppingCart
                 color="white"
