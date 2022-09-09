@@ -39,6 +39,8 @@ export const Location = styled.div`
 `
 
 export const CartIcon = styled.div`
+  position: relative;
+
   background-color: ${props => props.theme.yellowLight};
   padding: .5rem;
 
@@ -50,5 +52,23 @@ export const CartIcon = styled.div`
 
   &:hover{
     filter: brightness(1.03);
+  }
+
+  >div{
+    position: absolute;
+    transform: translate(22px, -13px);
+    width: 2rem;
+    height: 2rem;
+    background-color: ${props => props.theme.yellowDark};
+    color: white; 
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1000px;
   }
 `

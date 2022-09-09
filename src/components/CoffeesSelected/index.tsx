@@ -1,7 +1,6 @@
 import { Trash } from "phosphor-react";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { CoffeesApi } from '../../coffeesApi';
 import { CartContext } from "../../contexts/CartContext/CartContext";
 import { CoffeeSelected, CoffeesSelectedContainer } from "./styles";
 
@@ -46,13 +45,13 @@ export function CoffeesSelected(){
               </div>
             </div>
 
-            <strong>R$ {coffee.price}</strong>
+            <strong>R$ 9,90</strong>
           </CoffeeSelected>
           ))}
 
           <div>
             <p>Total de itens</p>
-            <p>R$ 29,70</p>
+            <p>R$ 33,50</p>
           </div>
 
           <div>
