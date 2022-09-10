@@ -8,7 +8,7 @@ export interface Coffee{
   quantity: number;
   label: string[];
   image: string;
-  price: string;
+  price: number;
 }
 
 interface ProductsContextType{

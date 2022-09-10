@@ -20,7 +20,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Tradicional'],
     image: ExpressoTradicional,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Tradicional'],
     image: ExpressoAmericano,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Tradicional'],
     image: ExpressoCremoso,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Tradicional', 'Gelado'],
     image: ExpressoGelado,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Tradicional', 'Com leite'],
     image: CafeComLeite,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Tradicional', 'Com leite'],
     image: Latte,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Tradicional', 'Com leite'],
     image: Capuccino,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 8,
@@ -83,7 +83,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Tradicional', 'Com leite'],
     image: Macchiato,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 9,
@@ -92,7 +92,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Tradicional', 'Com leite'],
     image: Mocaccino,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 10,
@@ -101,7 +101,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Especial', 'Com leite'],
     image: ChocolateQuente,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 11,
@@ -110,7 +110,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Especial', 'Alcoólico', 'Gelado'],
     image: ChocolateQuente,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 12,
@@ -119,7 +119,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Especial'],
     image: Havaiano,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 13,
@@ -128,7 +128,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Especial'],
     image: Arabe,
-    price: '9,90'
+    price: 9.90
   },
   {
     id: 14,
@@ -137,7 +137,7 @@ export const CoffeesApi = [
     quantity: 1,
     label: ['Especial', 'Alcoólico'],
     image: Irlandes,
-    price: '9,90'
+    price: 9.90
   },
 ]
 

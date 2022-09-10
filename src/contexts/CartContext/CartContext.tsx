@@ -33,6 +33,7 @@ export function CartContextProvider({children}: CartContextProviderProps){
         : item 
     }))
     : setCart(prevState => [...prevState, productsFiltered[0]])    
+
   }
 
   function handleAddProductQuantityInCart(id: number){

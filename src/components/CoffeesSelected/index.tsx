@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext/CartContext";
 import { CoffeeSelected, CoffeesSelectedContainer } from "./styles";
+import { formatPrice } from '../../util/format';
+
 
 export function CoffeesSelected(){
   const { cart, 
@@ -11,9 +13,25 @@ export function CoffeesSelected(){
     handleRemoveProductFromCart
   } = useContext(CartContext)
 
+  const cartFormatted = cart.map(product=>(
+    {
+      ...product,
+      priceFormatted: formatPrice(product.price),
+      subTotal: formatPrice(product.quantity * product.price),
+    })
+  )
+
+  const total = cartFormatted.reduce((sumTotal, product) => {
+    return sumTotal + product.quantity * product.price
+  }, 0)
+  
+  const totalFormatted = formatPrice(total)
+
+  const totalWithDeliveryFeeFormatted = formatPrice(total + 3.50)
+
   return(
     <CoffeesSelectedContainer>
-          {cart.map(coffee => (
+          {cartFormatted.map(coffee => (
             <CoffeeSelected>
             <img src={coffee.image}/>
             <div>
@@ -45,13 +63,13 @@ export function CoffeesSelected(){
               </div>
             </div>
 
-            <strong>R$ 9,90</strong>
+            <strong>{coffee.subTotal}</strong>
           </CoffeeSelected>
           ))}
 
           <div>
             <p>Total de itens</p>
-            <p>R$ 33,50</p>
+            <p>{totalFormatted}</p>
           </div>
 
           <div>
@@ -61,7 +79,7 @@ export function CoffeesSelected(){
 
           <div>
             <strong>Total</strong>
-            <strong>R$ 33,20</strong>
+            <strong>{totalWithDeliveryFeeFormatted}</strong>
           </div>
 
           <NavLink className="confirmRequestLink" to="/success">
