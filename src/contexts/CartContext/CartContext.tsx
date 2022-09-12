@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { Coffee, ProductsContext } from "../ProductsContext/ProductsContext";
 
 interface CartContextProps{
@@ -35,6 +36,7 @@ export function CartContextProvider({children}: CartContextProviderProps){
     : setCart(prevState => [...prevState, productsFiltered[0]]) 
     
     resetProductQuantity(id)
+    toast.success('Item adicionado ao carrinho com sucesso!')
   }
 
   function handleAddProductQuantityInCart(id: number){

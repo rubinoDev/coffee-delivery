@@ -6,6 +6,7 @@ import { Router } from './Router'
 import { GlobalStyle } from './styles/global'
 import { DefaultTheme } from './styles/themes/default'
 import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { FormContextProvider } from './contexts/FormContext/FormContext'
 
 export function App() {
@@ -18,7 +19,7 @@ export function App() {
             <FormContextProvider>
               <GlobalStyle/>
               <Router/>
-              <ToastContainer/>
+              <ToastContainer autoClose={2000}/>
             </FormContextProvider>
           </CartContextProvider>
         </ProductsContextProvider>
