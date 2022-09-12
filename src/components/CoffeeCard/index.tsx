@@ -5,6 +5,7 @@ import { BuyContainer, CardContainer, LabelsContainer } from "./styles";
 import { nanoid } from 'nanoid';
 import { CartContext } from "../../contexts/CartContext/CartContext";
 
+
 interface CoffeeCardProps{
   coffee: Coffee;
 }
@@ -16,6 +17,7 @@ export function CoffeeCard({coffee}: CoffeeCardProps){
   } = useContext(ProductsContext)
 
   const { handleAddProductToCart } = useContext( CartContext )
+
 
   return(
     <CardContainer>
@@ -34,7 +36,7 @@ export function CoffeeCard({coffee}: CoffeeCardProps){
       <p>{coffee.description}</p>
 
       <BuyContainer>
-        <span>R$ <strong>{coffee.price}</strong></span>
+        <span>R$ <strong>9,90</strong></span>
 
         <div>
           <div>

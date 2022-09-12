@@ -5,6 +5,7 @@ import { Stats } from '../../components/Stats'
 import { ProductsContext } from '../../contexts/ProductsContext/ProductsContext'
 import { CoffeesMenu, HomeHeader, HomeHeaderContent } from './styles'
 
+
 export function Home(){
   const { products } = useContext(ProductsContext)
 
@@ -34,6 +35,7 @@ export function Home(){
           ))}
         </div>
       </CoffeesMenu>
+
     </main>
   )
 }
