@@ -4,19 +4,23 @@ import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
 import { useContext } from "react";
 import { FormContext } from "../../contexts/FormContext/FormContext";
 import { states } from "../../util/statesUf";
+import { PaymentContext } from "../../contexts/PaymentContext/PaymentContext";
 
 
 export function Success(){
   const { watch } = useContext(FormContext)
+  const { paymentButtons } = useContext(PaymentContext)
 
   const street = watch('street');
   const number = watch('number');
   const city = watch('city');
   const uf = watch('uf');
 
-  const ufUppercase= uf.toUpperCase()
+  const ufUppercase= uf.toUpperCase();
 
   const state = states[ufUppercase];
+
+  const paymentButtonActive = paymentButtons.find(button => button.isActive )
 
   return(
     <SuccessContainer>
@@ -61,7 +65,7 @@ export function Success(){
             </div>
             <div>
               <p>Pagamento na entrega</p>
-              <strong>Cartão de Crédito</strong>
+              <strong>{paymentButtonActive?.title}</strong>
             </div>
           </div>
         </DeliveryStatsContainer>

@@ -10,7 +10,6 @@ export function Form (){
   const complement = watch('complement');
   const isComplementEmpty = !!complement;
 
-  console.log(statesList)
 
   return(
   <FormContainer

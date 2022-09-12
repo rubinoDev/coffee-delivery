@@ -53,7 +53,7 @@ export const CoffeesSelectedContainer = styled(BaseCheckoutContainer)`
         border: none;
 
         &:disabled{
-          opacity: .7;
+          opacity: .5;
           cursor: not-allowed;
         }
 

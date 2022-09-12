@@ -8,6 +8,7 @@ import { DefaultTheme } from './styles/themes/default'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { FormContextProvider } from './contexts/FormContext/FormContext'
+import { PaymentContext, PaymentContextProvider } from './contexts/PaymentContext/PaymentContext'
 
 export function App() {
  
@@ -15,13 +16,15 @@ export function App() {
     <ThemeProvider theme={DefaultTheme}>
       <BrowserRouter>
         <ProductsContextProvider>
-          <CartContextProvider>
-            <FormContextProvider>
-              <GlobalStyle/>
-              <Router/>
-              <ToastContainer autoClose={2000}/>
-            </FormContextProvider>
-          </CartContextProvider>
+        <CartContextProvider>
+        <FormContextProvider>
+        <PaymentContextProvider>
+          <GlobalStyle/>
+          <Router/>
+          <ToastContainer autoClose={2000}/>
+        </PaymentContextProvider>
+        </FormContextProvider>
+        </CartContextProvider>
         </ProductsContextProvider>
       </BrowserRouter>
     </ThemeProvider>

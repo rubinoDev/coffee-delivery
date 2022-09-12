@@ -5,6 +5,7 @@ import { CartContext } from "../../contexts/CartContext/CartContext";
 import { CoffeeSelected, CoffeesSelectedContainer } from "./styles";
 import { formatPrice } from '../../util/format';
 import { FormContext } from "../../contexts/FormContext/FormContext";
+import { PaymentContext } from "../../contexts/PaymentContext/PaymentContext";
 
 
 export function CoffeesSelected(){
@@ -15,6 +16,8 @@ export function CoffeesSelected(){
   } = useContext(CartContext)
 
   const { watch } = useContext(FormContext)
+
+  const { paymentButtons } = useContext(PaymentContext)
 
   const allInputsWatched = watch(
    [ 'cep', 
@@ -27,9 +30,10 @@ export function CoffeesSelected(){
   )
 
 
-  const isAllInputsFilled = allInputsWatched.every(item => item !== '')
+  const isAllInputsFilled = allInputsWatched.every(item => item !== '');
+  const isAllPaymentButtonsNotActive = paymentButtons.every(button => button.isActive === false);
   const isCartEmpty = cart.length === 0;
-  const isDisabled = isCartEmpty || !isAllInputsFilled;
+  const isDisabled = isCartEmpty || !isAllInputsFilled || isAllPaymentButtonsNotActive;
 
   const cartFormatted = cart.map(product=>(
     {
