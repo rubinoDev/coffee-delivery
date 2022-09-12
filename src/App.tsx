@@ -21,7 +21,7 @@ export function App() {
         <PaymentContextProvider>
           <GlobalStyle/>
           <Router/>
-          <ToastContainer autoClose={2000}/>
+          <ToastContainer autoClose={2000} pauseOnHover={false}/>
         </PaymentContextProvider>
         </FormContextProvider>
         </CartContextProvider>

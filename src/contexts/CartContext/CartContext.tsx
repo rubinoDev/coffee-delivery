@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Coffee, ProductsContext } from "../ProductsContext/ProductsContext";
 
@@ -18,7 +18,17 @@ export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({children}: CartContextProviderProps){
   const { products, resetProductQuantity } = useContext(ProductsContext)
-  const [cart, setCart] = useState<Coffee[]>([])
+  const [cart, setCart] = useState<Coffee[]>(() => {
+  const storagedCart = localStorage.getItem('@CoffeeDelivery:cart')
+
+  if (storagedCart) {
+    return JSON.parse(storagedCart);
+  }
+
+  return [];
+})
+
+  
 
 
   function handleAddProductToCart(id: number){
@@ -36,6 +46,7 @@ export function CartContextProvider({children}: CartContextProviderProps){
     : setCart(prevState => [...prevState, productsFiltered[0]]) 
     
     resetProductQuantity(id)
+
     toast.success('Item adicionado ao carrinho com sucesso!')
   }
 
@@ -65,6 +76,10 @@ export function CartContextProvider({children}: CartContextProviderProps){
     const productsFiltered = cart.filter(item => item.id !== id);
     setCart(productsFiltered)
   }
+
+  useEffect(() =>{
+    localStorage.setItem('@CoffeeDelivery:cart', JSON.stringify(cart))
+  },[cart])
 
   return(
     <CartContext.Provider value={{
