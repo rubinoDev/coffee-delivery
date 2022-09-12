@@ -1,11 +1,15 @@
 import { Trash } from "phosphor-react";
+
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext/CartContext";
-import { CoffeeSelected, CoffeesSelectedContainer } from "./styles";
-import { formatPrice } from '../../util/format';
 import { FormContext } from "../../contexts/FormContext/FormContext";
 import { PaymentContext } from "../../contexts/PaymentContext/PaymentContext";
+
+import { NavLink } from "react-router-dom";
+
+import { formatPrice } from '../../util/format';
+
+import { CoffeeSelected, CoffeesSelectedContainer } from "./styles";
 
 
 export function CoffeesSelected(){

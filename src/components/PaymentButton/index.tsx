@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { PaymentContext } from "../../contexts/PaymentContext/PaymentContext";
+
 import { PaymentButtonContainer } from "./styles";
 
 interface PaymentButtonProps {

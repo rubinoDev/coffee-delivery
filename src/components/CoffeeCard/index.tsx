@@ -1,10 +1,13 @@
 import { ShoppingCart } from "phosphor-react";
+
 import { useContext } from "react";
+
 import { Coffee, ProductsContext } from "../../contexts/ProductsContext/ProductsContext";
-import { BuyContainer, CardContainer, LabelsContainer } from "./styles";
-import { nanoid } from 'nanoid';
 import { CartContext } from "../../contexts/CartContext/CartContext";
 
+import { nanoid } from 'nanoid';
+
+import { BuyContainer, CardContainer, LabelsContainer } from "./styles";
 
 interface CoffeeCardProps{
   coffee: Coffee;
@@ -17,7 +20,6 @@ export function CoffeeCard({coffee}: CoffeeCardProps){
   } = useContext(ProductsContext)
 
   const { handleAddProductToCart } = useContext( CartContext )
-
 
   return(
     <CardContainer>

@@ -1,14 +1,18 @@
 import { BrowserRouter } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
+
+import { Router } from './Router'
+
 import { CartContextProvider } from './contexts/CartContext/CartContext'
 import { ProductsContextProvider } from './contexts/ProductsContext/ProductsContext'
-import { Router } from './Router'
-import { GlobalStyle } from './styles/global'
-import { DefaultTheme } from './styles/themes/default'
+import { FormContextProvider } from './contexts/FormContext/FormContext'
+import { PaymentContextProvider } from './contexts/PaymentContext/PaymentContext'
+
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { FormContextProvider } from './contexts/FormContext/FormContext'
-import { PaymentContext, PaymentContextProvider } from './contexts/PaymentContext/PaymentContext'
+
+import { GlobalStyle } from './styles/global'
+import { DefaultTheme } from './styles/themes/default'
+import { ThemeProvider } from 'styled-components'
 
 export function App() {
  

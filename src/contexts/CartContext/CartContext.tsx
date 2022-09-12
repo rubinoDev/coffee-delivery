@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+
 import { toast } from "react-toastify";
+
 import { Coffee, ProductsContext } from "../ProductsContext/ProductsContext";
 
 interface CartContextProps{
@@ -18,18 +20,15 @@ export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({children}: CartContextProviderProps){
   const { products, resetProductQuantity } = useContext(ProductsContext)
+
   const [cart, setCart] = useState<Coffee[]>(() => {
   const storagedCart = localStorage.getItem('@CoffeeDelivery:cart')
+    if (storagedCart) {
+      return JSON.parse(storagedCart);
+    }
 
-  if (storagedCart) {
-    return JSON.parse(storagedCart);
-  }
-
-  return [];
-})
-
-  
-
+    return [];
+  })
 
   function handleAddProductToCart(id: number){
     const updatedCart = [...cart];

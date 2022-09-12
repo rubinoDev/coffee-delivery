@@ -1,4 +1,5 @@
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
+
 import { Stat, StatsContainer } from "./styles";
 
 export function Stats(){

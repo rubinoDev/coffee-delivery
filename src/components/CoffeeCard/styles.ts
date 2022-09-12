@@ -63,17 +63,12 @@ export const LabelsContainer = styled.div`
     line-height: 130%;
 
     text-transform: uppercase;
-
   }
-
-
 `
-
 export const BuyContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   span{
     font-weight: 400;
@@ -109,10 +104,8 @@ export const BuyContainer = styled.div`
 
       transition: color 200ms;
 
-
       &:hover{
         color: ${props => props.theme.purpleDark};
-
       }
     }
   }
@@ -124,7 +117,6 @@ export const BuyContainer = styled.div`
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 200ms;
-
 
     &:hover{
       background-color: ${props => props.theme.purple};

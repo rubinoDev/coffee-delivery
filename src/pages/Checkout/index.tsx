@@ -1,7 +1,8 @@
-import { CheckoutContainer } from "./styles";
 import { Form } from "../../components/Form";
 import { Payment } from "../../components/Payment";
 import { CoffeesSelected } from "../../components/CoffeesSelected";
+
+import { CheckoutContainer } from "./styles";
 
 export function Checkout(){
 
@@ -17,8 +18,6 @@ export function Checkout(){
         <h2>Cafés selecionados</h2>
         <CoffeesSelected/>
       </div>
-        
-      
     </CheckoutContainer>
   )
 }

@@ -1,5 +1,6 @@
 import { createContext, ReactNode } from "react";
-import { FieldValues, useForm, UseFormHandleSubmit, UseFormRegister, UseFormWatch } from "react-hook-form";
+
+import { FieldValues, useForm, UseFormRegister, UseFormWatch } from "react-hook-form";
 
 interface FormContextProviderProps{
   children: ReactNode;
@@ -13,7 +14,6 @@ interface FormContextProps {
 export const FormContext = createContext({} as FormContextProps)
 
 export function FormContextProvider({children}: FormContextProviderProps){
-
   const { register, watch } = useForm();
 
   return(

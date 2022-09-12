@@ -1,13 +1,15 @@
 import { CartIcon, HeaderContainer, Location } from "./styles";
 import Logo from '../../assets/logo-coffee-delivery.svg'
-import { NavLink } from "react-router-dom";
 import { MapPin, ShoppingCart } from "phosphor-react";
+
+import { NavLink } from "react-router-dom";
+
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext/CartContext";
 
 export function Header(){
   const { cart } = useContext(CartContext);
-  const itemsQuantity = cart.length;
+  const differentItemsQuantityInCart = cart.length;
   const isCartEmpty = cart.length === 0;
 
   return(
@@ -30,7 +32,7 @@ export function Header(){
           <CartIcon>
             {!isCartEmpty && 
               <div>
-                {itemsQuantity}
+                {differentItemsQuantityInCart}
               </div>
             }
             <NavLink to="/checkout">

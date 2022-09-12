@@ -1,11 +1,13 @@
-import { DeliveryStatsContainer, SuccessContainer } from "./styles";
-import ManOnMotorcycle from '../../assets/Illustration.png'
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
+import ManOnMotorcycle from '../../assets/Illustration.png'
+
 import { useContext } from "react";
 import { FormContext } from "../../contexts/FormContext/FormContext";
-import { states } from "../../util/statesUf";
 import { PaymentContext } from "../../contexts/PaymentContext/PaymentContext";
 
+import { ufStatesDicionary } from "../../util/statesUf";
+
+import { DeliveryStatsContainer, SuccessContainer } from "./styles";
 
 export function Success(){
   const { watch } = useContext(FormContext)
@@ -17,10 +19,9 @@ export function Success(){
   const uf = watch('uf');
 
   const ufUppercase= uf.toUpperCase();
+  const state = ufStatesDicionary[ufUppercase];
 
-  const state = states[ufUppercase];
-
-  const paymentButtonActive = paymentButtons.find(button => button.isActive )
+  const paymentButtonActive = paymentButtons.find(button => button.isActive)
 
   return(
     <SuccessContainer>

@@ -1,4 +1,4 @@
-export const states: any = {
+export const ufStatesDicionary: any = {
   'AC': 'Acre',
   'AL': 'Alagoas',
   'AP': 'Amapá',
@@ -28,7 +28,7 @@ export const states: any = {
   'TO': 'Tocantins',
 }
 
-export const statesList = [
+export const ufStatesList = [
    'AC',   
    'AL',
    'AP',

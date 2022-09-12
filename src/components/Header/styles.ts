@@ -57,9 +57,12 @@ export const CartIcon = styled.div`
   >div{
     position: absolute;
     transform: translate(22px, -13px);
+
     width: 2rem;
     height: 2rem;
+
     background-color: ${props => props.theme.yellowDark};
+    
     color: white; 
     font-size: 1.2rem;
     font-weight: 700;

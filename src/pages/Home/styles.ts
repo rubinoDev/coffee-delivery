@@ -11,7 +11,6 @@ export const HomeHeaderContent = styled.div`
   width: 50%;
 
   header{
-
     h2{
       font-family: 'Baloo 2';
       font-style: normal;
@@ -28,9 +27,9 @@ export const HomeHeaderContent = styled.div`
       font-weight: 400;
       font-size: 2rem;
       line-height: 130%;
+      font-stretch: 100;
 
       color: ${props => props.theme.baseSubtitle};
-      font-stretch: 100;
 
       margin-bottom: 7rem;
     }
@@ -53,10 +52,9 @@ export const CoffeesMenu = styled.section`
     font-weight: 800;
     font-size: 3.2rem;
     line-height: 130%;
+    color: ${props => props.theme.baseSubtitle};
 
     display: flex;
     align-items: center;
-
-    color: ${props => props.theme.baseSubtitle};
   }
 `

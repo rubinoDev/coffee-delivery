@@ -1,5 +1,5 @@
-import { IconProps } from "@vtex/phosphor-icons";
 import { Bank, CreditCard, Money } from "phosphor-react";
+
 import { createContext, ReactNode, useEffect, useState } from "react";
 
 interface PaymentContextProviderProps{
@@ -64,7 +64,6 @@ function handleSelectPaymentButton(id : number){
     })  
   )
 }
-
   return (
     <PaymentContext.Provider value={{
       paymentButtons,

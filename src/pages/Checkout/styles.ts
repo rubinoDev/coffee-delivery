@@ -7,6 +7,7 @@ export const CheckoutContainer = styled.section`
   h2{
     margin-top: 7rem;
     margin-bottom: 2rem;
+
     font-family: 'Baloo 2';
     font-style: normal;
     font-weight: 700;
@@ -23,18 +24,19 @@ export const CheckoutContainer = styled.section`
   }
 `
 export const BaseCheckoutContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 4rem;
-    gap: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.2rem;
+  
+  padding: 4rem;
+  width: 64rem;
 
-    width: 64rem;
+  background: ${props => props.theme.baseCard};
 
-    background: ${props => props.theme.baseCard};
-    border-radius: 6px;
+  border-radius: 6px;
 
-    header{
+  header{
     display: flex;
     gap: .7rem;
 

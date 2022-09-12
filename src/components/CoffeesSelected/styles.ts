@@ -31,9 +31,9 @@ export const CoffeesSelectedContainer = styled(BaseCheckoutContainer)`
     }
   }
 
-    
   .confirmRequestButton{
     width: 100%;
+
       button{
         cursor: pointer;
         width: 100%;
@@ -62,8 +62,6 @@ export const CoffeesSelectedContainer = styled(BaseCheckoutContainer)`
         }
     }
   }
-    
-
 `
 
 export const CoffeeSelected = styled.div`
@@ -158,5 +156,4 @@ export const CoffeeSelected = styled.div`
 
     color: ${props => props.theme.baseText};
   }
-
 `

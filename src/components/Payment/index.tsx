@@ -1,15 +1,14 @@
-import { Bank, CreditCard, CurrencyDollar, Money } from "phosphor-react";
+import { CurrencyDollar } from "phosphor-react";
+
+import { PaymentButton } from "../PaymentButton";
+
 import { useContext } from "react";
 import { PaymentContext } from "../../contexts/PaymentContext/PaymentContext";
-import { PaymentButton } from "../PaymentButton";
-import { PaymentContainer } from "./styles";
 
+import { PaymentContainer } from "./styles";
 
 export function Payment(){
   const { paymentButtons } = useContext(PaymentContext)
-
-  console.log(paymentButtons)
-
 
   return(
     <PaymentContainer>

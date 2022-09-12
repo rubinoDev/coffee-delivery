@@ -17,7 +17,6 @@ export const PaymentButtonContainer = styled.button<PaymentButtonContainerProps>
 
   background: ${props => props.theme.baseButton};
   border-radius: 6px;
-
   border: none;
 
   font-size: 1.1rem;
@@ -25,6 +24,7 @@ export const PaymentButtonContainer = styled.button<PaymentButtonContainerProps>
   line-height: 160%;
   text-transform: uppercase;
   color: ${props => props.theme.baseText};
+
   transition: background-color 200ms;
 
   &:hover{
@@ -33,6 +33,7 @@ export const PaymentButtonContainer = styled.button<PaymentButtonContainerProps>
 
   ${props => props.isActive && css`
     background: ${props => props.theme.purpleLight};
+    
     outline: 1px solid ${props => props.theme.purple};
 
     &:hover{

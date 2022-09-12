@@ -1,8 +1,11 @@
-import { useContext } from 'react'
 import CoffeeBg from '../../assets/coffee-bg.png'
+
+import { useContext } from 'react'
+import { ProductsContext } from '../../contexts/ProductsContext/ProductsContext'
+
 import { CoffeeCard } from '../../components/CoffeeCard'
 import { Stats } from '../../components/Stats'
-import { ProductsContext } from '../../contexts/ProductsContext/ProductsContext'
+
 import { CoffeesMenu, HomeHeader, HomeHeaderContent } from './styles'
 
 

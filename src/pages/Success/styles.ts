@@ -9,15 +9,12 @@ export const SuccessContainer = styled.section`
     font-weight: 800;
     font-size: 3.2rem;
     line-height: 130%;
-
     color: ${props => props.theme.yellowDark};
-
   }
 
   >p{
     font-size: 2rem;
     line-height: 130%;
-
     color: ${props => props.theme.baseSubtitle};
   }
 
@@ -25,7 +22,6 @@ export const SuccessContainer = styled.section`
     display: flex;
     justify-content: space-between;
   }
-
 `
 
 export const DeliveryStatsContainer = styled.div`
@@ -49,7 +45,9 @@ export const DeliveryStatsContainer = styled.div`
 
     .mapPin{
       padding: 1rem; 
+
       background-color: ${props => props.theme.purple};
+
       border-radius: 100%;
 
       display: flex; 
@@ -59,7 +57,9 @@ export const DeliveryStatsContainer = styled.div`
 
     .timer{
       padding: 1rem; 
+
       background-color: ${props => props.theme.yellow};
+
       border-radius: 100%;
 
       display: flex; 
@@ -69,7 +69,9 @@ export const DeliveryStatsContainer = styled.div`
 
     .dollar{
       padding: 1rem;  
+
       background-color: ${props => props.theme.yellowDark};
+
       border-radius: 100%;
 
       display: flex; 
@@ -88,7 +90,6 @@ export const DeliveryStatsContainer = styled.div`
       font-weight: 700;
       font-size: 1.6rem;
       line-height: 130%;
-
       color: ${props => props.theme.baseText};
     }
   }

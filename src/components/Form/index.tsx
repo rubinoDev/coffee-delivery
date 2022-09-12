@@ -1,7 +1,10 @@
 import { MapPinLine } from "phosphor-react";
+
 import { useContext } from "react";
 import { FormContext } from "../../contexts/FormContext/FormContext";
-import {  statesList } from "../../util/statesUf";
+
+import { ufStatesList } from "../../util/statesUf";
+
 import { FormContainer } from "./styles";
 
 export function Form (){
@@ -77,7 +80,7 @@ export function Form (){
 
 
           <datalist id="uf-suggestions">
-            {statesList.map(state =>{
+            {ufStatesList.map(state =>{
                 return  <option value={state}/>
               }
             )}
