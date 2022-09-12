@@ -27,7 +27,6 @@ export function CoffeesSelected(){
    [ 'cep', 
     'street', 
     'number',
-    'complement',
     'district',
     'city',
     'uf']
