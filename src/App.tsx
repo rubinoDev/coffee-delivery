@@ -6,6 +6,7 @@ import { Router } from './Router'
 import { GlobalStyle } from './styles/global'
 import { DefaultTheme } from './styles/themes/default'
 import { ToastContainer } from 'react-toastify'
+import { FormContextProvider } from './contexts/FormContext/FormContext'
 
 export function App() {
  
@@ -14,8 +15,10 @@ export function App() {
       <BrowserRouter>
         <ProductsContextProvider>
           <CartContextProvider>
-            <GlobalStyle/>
-            <Router/>
+            <FormContextProvider>
+              <GlobalStyle/>
+              <Router/>
+            </FormContextProvider>
           </CartContextProvider>
         </ProductsContextProvider>
       </BrowserRouter>

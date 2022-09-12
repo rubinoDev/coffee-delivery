@@ -1,8 +1,16 @@
 import { MapPinLine } from "phosphor-react";
+import { createContext, useContext } from "react";
+import { useForm } from "react-hook-form";
+import { FormContext } from "../../contexts/FormContext/FormContext";
 import { FormContainer } from "./styles";
 
+interface FormContextProps{
+  allInputsWatched: () => void;
+}
 
 export function Form (){
+  const { register } = useContext(FormContext)
+
   return(
   <FormContainer>
     <form>
@@ -18,18 +26,48 @@ export function Form (){
       </header>
 
       <div>
-        <input className="cep" type="text" placeholder="CEP"/>
-        <input type="text" placeholder="Rua"/>
+        <input 
+          className="cep" 
+          type="text" 
+          placeholder="CEP"
+          {...register('cep')}
+        />
+        <input 
+          type="text" 
+          placeholder="Rua"
+          {...register('street')}
+        />
         <div>
-          <input type="text" placeholder="Número"/>
+          <input 
+            type="text" 
+            placeholder="Número"
+            {...register('number')}
+          />
           <div>
-            <input className="complemento" type="text" placeholder="Complemento"/>
+            <input 
+              className="complemento" 
+              type="text" 
+              placeholder="Complemento"
+              {...register('complement')}
+            />
           </div>
         </div>
         <div>
-          <input type="text" placeholder="Bairro"/>
-          <input type="text" placeholder="Cidade"/>
-          <input type="text" placeholder="UF"/>
+          <input 
+            type="text" 
+            placeholder="Bairro"
+            {...register('district')}
+          />
+          <input 
+            type="text" 
+            placeholder="Cidade"
+            {...register('city')}
+          />
+          <input 
+            type="text" 
+            placeholder="UF"
+            {...register('uf')}
+          />
         </div>
       </div>
     </form>

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext/CartContext";
 import { CoffeeSelected, CoffeesSelectedContainer } from "./styles";
 import { formatPrice } from '../../util/format';
+import { FormContext } from "../../contexts/FormContext/FormContext";
 
 
 export function CoffeesSelected(){
@@ -12,6 +13,20 @@ export function CoffeesSelected(){
     handleRemoveProductQuantityInCart,
     handleRemoveProductFromCart
   } = useContext(CartContext)
+
+  const { watch } = useContext(FormContext)
+
+  const allInputsWatched = watch(
+   [ 'cep', 
+    'street', 
+    'number',
+    'complement',
+    'district',
+    'city',
+    'uf']
+  )
+
+  const isAllInputsFilled = allInputsWatched.every(item => item !== '')
 
   const cartFormatted = cart.map(product=>(
     {
@@ -82,10 +97,10 @@ export function CoffeesSelected(){
             <strong>{totalWithDeliveryFeeFormatted}</strong>
           </div>
 
-          <NavLink className="confirmRequestLink" to="/success">
-            <div>
-              Confirmar pedido
-            </div>
+          <NavLink className="confirmRequestButton" to="/success">
+              <button disabled={!isAllInputsFilled}>
+                Confirmar pedido
+              </button>
 
           </NavLink>
 

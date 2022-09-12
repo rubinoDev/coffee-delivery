@@ -31,34 +31,39 @@ export const CoffeesSelectedContainer = styled(BaseCheckoutContainer)`
     }
   }
 
-  .confirmRequestLink{
+    
+  .confirmRequestButton{
     width: 100%;
-    text-decoration: none;
-    width: 100%;
-    padding: 1.2rem .8rem;
-    color: white;
-    background: ${props => props.theme.yellow};
-    border-radius: 6px;   
+      button{
+        cursor: pointer;
+        width: 100%;
+        padding: 1.2rem .8rem;
+        text-decoration: none;
+        color: white;
+        background: ${props => props.theme.yellow};
+        border-radius: 6px;   
 
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: 160%;
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 160%;
 
-    text-transform: uppercase;
-    transition: background-color 200ms;
+        text-transform: uppercase;
+        transition: background-color 200ms;
 
-    &:hover{
-      background: ${props => props.theme.yellowDark};
+        border: none;
+
+        &:disabled{
+          opacity: .7;
+          cursor: not-allowed;
+        }
+
+        &:not(:disabled):hover{
+          background-color: ${props => props.theme.yellowDark};
+        }
     }
   }
-
-  .confirmRequestLink div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     
-  } 
+
 `
 
 export const CoffeeSelected = styled.div`
