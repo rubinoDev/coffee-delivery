@@ -1,18 +1,21 @@
 import { MapPinLine } from "phosphor-react";
-import { createContext, useContext } from "react";
-import { useForm } from "react-hook-form";
+import { useContext } from "react";
 import { FormContext } from "../../contexts/FormContext/FormContext";
+import {  statesList } from "../../util/statesUf";
 import { FormContainer } from "./styles";
 
-interface FormContextProps{
-  allInputsWatched: () => void;
-}
-
 export function Form (){
-  const { register } = useContext(FormContext)
+  const { register, watch } = useContext(FormContext)
+
+  const complement = watch('complement');
+  const isComplementEmpty = !!complement;
+
+  console.log(statesList)
 
   return(
-  <FormContainer>
+  <FormContainer
+    isComplementEmpty={isComplementEmpty}
+  >
     <form>
       <header>
         <MapPinLine
@@ -65,9 +68,21 @@ export function Form (){
           />
           <input 
             type="text" 
+            list="uf-suggestions"
             placeholder="UF"
+            maxLength={2}
+            minLength={2}
+            pattern="banana|cherry"
             {...register('uf')}
           />
+
+
+          <datalist id="uf-suggestions">
+            {statesList.map(state =>{
+                return  <option value={state}/>
+              }
+            )}
+          </datalist>
         </div>
       </div>
     </form>

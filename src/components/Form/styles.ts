@@ -1,7 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { BaseCheckoutContainer } from "../../pages/Checkout/styles";
 
-export const FormContainer = styled(BaseCheckoutContainer)`
+interface FormContainerProps{
+  isComplementEmpty: boolean;
+}
+
+export const FormContainer = styled(BaseCheckoutContainer)<FormContainerProps>`
   form > div{
     display: flex;
     flex-direction: column;
@@ -36,19 +40,22 @@ export const FormContainer = styled(BaseCheckoutContainer)`
       >div{
         width: 100%;
         position: relative;
-        &::after{
-          content: "Opcional";
-          font-style: italic;
-          font-weight: 400;
-          font-size: 1.2rem;
-          line-height: 130%;
 
-          position: absolute;
-          top: 1.25rem;
-          right: 2rem;
+        ${props => !props.isComplementEmpty && css`
+          &::after{
+            content: "Opcional";
+            font-style: italic;
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 130%;
 
-          color: ${props => props.theme.baseLabel};
-        }
+            position: absolute;
+            top: 1.25rem;
+            right: 2rem;
+
+            color: ${props => props.theme.baseLabel};
+          }
+        `}
       }
     }
   }

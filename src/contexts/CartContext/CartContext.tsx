@@ -16,7 +16,7 @@ interface CartContextProviderProps{
 export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({children}: CartContextProviderProps){
-  const { products } = useContext(ProductsContext)
+  const { products, resetProductQuantity } = useContext(ProductsContext)
   const [cart, setCart] = useState<Coffee[]>([])
 
 
@@ -32,7 +32,9 @@ export function CartContextProvider({children}: CartContextProviderProps){
         {...item, quantity: quantityUpdated}
         : item 
     }))
-    : setCart(prevState => [...prevState, productsFiltered[0]])    
+    : setCart(prevState => [...prevState, productsFiltered[0]]) 
+    
+    resetProductQuantity(id)
   }
 
   function handleAddProductQuantityInCart(id: number){

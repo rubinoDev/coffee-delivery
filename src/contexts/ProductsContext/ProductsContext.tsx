@@ -15,6 +15,7 @@ interface ProductsContextType{
   products: Coffee[];
   handleAddProductQuantity: (id:number) => void;
   handleRemoveProductQuantity: (id:number) => void;
+  resetProductQuantity: (id:number) => void;
 }
 
 interface ProductsContextProviderProps{
@@ -52,12 +53,22 @@ export function ProductsContextProvider({children}: ProductsContextProviderProps
     )
   }
 
+  function resetProductQuantity(id : number){
+    setProducts(prevState =>
+      prevState.map(product =>{
+        return product.id === id ? 
+        {...product, quantity: 1} 
+        : product
+      })
+    )
+  }
 
   return(
     <ProductsContext.Provider value={{
       products,
       handleAddProductQuantity,
-      handleRemoveProductQuantity
+      handleRemoveProductQuantity,
+      resetProductQuantity
       }}>
         { children }
       </ProductsContext.Provider>

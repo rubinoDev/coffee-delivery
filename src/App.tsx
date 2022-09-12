@@ -18,6 +18,7 @@ export function App() {
             <FormContextProvider>
               <GlobalStyle/>
               <Router/>
+              <ToastContainer/>
             </FormContextProvider>
           </CartContextProvider>
         </ProductsContextProvider>

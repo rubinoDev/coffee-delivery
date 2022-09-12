@@ -26,7 +26,10 @@ export function CoffeesSelected(){
     'uf']
   )
 
+
   const isAllInputsFilled = allInputsWatched.every(item => item !== '')
+  const isCartEmpty = cart.length === 0;
+  const isDisabled = isCartEmpty || !isAllInputsFilled;
 
   const cartFormatted = cart.map(product=>(
     {
@@ -98,7 +101,7 @@ export function CoffeesSelected(){
           </div>
 
           <NavLink className="confirmRequestButton" to="/success">
-              <button disabled={!isAllInputsFilled}>
+              <button disabled={isDisabled}>
                 Confirmar pedido
               </button>
 

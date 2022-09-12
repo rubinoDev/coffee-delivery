@@ -1,8 +1,23 @@
 import { DeliveryStatsContainer, SuccessContainer } from "./styles";
 import ManOnMotorcycle from '../../assets/Illustration.png'
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
+import { useContext } from "react";
+import { FormContext } from "../../contexts/FormContext/FormContext";
+import { states } from "../../util/statesUf";
+
 
 export function Success(){
+  const { watch } = useContext(FormContext)
+
+  const street = watch('street');
+  const number = watch('number');
+  const city = watch('city');
+  const uf = watch('uf');
+
+  const ufUppercase= uf.toUpperCase()
+
+  const state = states[ufUppercase];
+
   return(
     <SuccessContainer>
       <h2>Uhu! Pedido confirmado</h2>
@@ -19,8 +34,8 @@ export function Success(){
               />
             </div>
             <div>
-              <p>Entrega em <strong>Rua João Daniel Martinelli, 102</strong></p>
-              <p>Farrapos - Porto Alegre, RS</p>
+              <p>Entrega em <strong>{street}, {number}</strong></p>
+              <p>{city} - {state}, {ufUppercase}</p>
             </div>
           </div>
           <div>
