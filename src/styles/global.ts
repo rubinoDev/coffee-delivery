@@ -26,4 +26,10 @@ export const GlobalStyle = createGlobalStyle`
   input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px #EDEDED inset !important;
   }
+
+  @media (max-width: 768px){
+    html{
+      font-size: 50%;
+    }
+  }
 `

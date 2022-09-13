@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
+  width:100%;
   margin-top: 3rem;
 
   nav{
@@ -73,5 +74,10 @@ export const CartIcon = styled.div`
     align-items: center;
 
     border-radius: 1000px;
+  }
+
+  @media (max-width: 768px){
+    justify-content: space-between;
+    
   }
 `

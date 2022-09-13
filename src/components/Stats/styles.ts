@@ -15,6 +15,11 @@ export const StatsContainer = styled.div`
     flex-direction: column;
     gap: 2rem;
   }
+  
+  @media (max-width: 768px){
+    gap: 3rem;
+    font-size: 1.5rem;
+  }
 `
 
 export const Stat = styled.div`

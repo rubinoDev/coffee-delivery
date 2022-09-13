@@ -59,4 +59,45 @@ export const FormContainer = styled(BaseCheckoutContainer)<FormContainerProps>`
       }
     }
   }
+
+  @media (max-width: 768px){
+    width: 100%;
+
+    header{
+      div{
+        h4{
+          font-size: 1.5rem;
+        }
+        p{
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    form>div{
+      input{
+        width: 100%;
+        &::placeholder{
+          font-size: 1.4rem;
+        }
+      }
+    >div:not(:last-child){
+          display: flex;
+          flex-direction: column;
+
+          >div{
+              ${props => !props.isComplementEmpty && css`
+                &::after{
+                  top: 1.8rem;
+                }
+            `}
+          }
+      }
+
+    .cep{
+      max-width: 20rem;
+    }
+
+    }
+  }
 `

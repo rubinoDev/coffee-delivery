@@ -22,6 +22,21 @@ export const CheckoutContainer = styled.section`
     flex-direction: column;
     gap: 1.5rem;
   }
+
+  @media (max-width: 1024px){
+    flex-direction: column;
+    gap: 0rem;
+
+    h2{
+      margin-top: 4rem;
+    }
+
+    >div{
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `
 export const BaseCheckoutContainer = styled.div`
   display: flex;

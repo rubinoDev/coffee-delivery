@@ -5,6 +5,12 @@ export const HomeHeader = styled.section`
   justify-content: space-between;
 
   margin-top: 13rem;
+
+  @media (max-width: 1024px){
+    flex-direction: column-reverse;
+    margin-top: 8rem;
+    
+  }
 `
 
 export const HomeHeaderContent = styled.div`
@@ -34,11 +40,23 @@ export const HomeHeaderContent = styled.div`
       margin-bottom: 7rem;
     }
   }
+
+  @media (max-width: 1024px){
+    width: 100%;
+
+    header{
+      h2{
+        font-size: 3.6rem;
+        margin-top: 2rem;
+      }
+    }
+  }
 `
 
 export const CoffeesMenu = styled.section` 
   div{
     display: flex;
+    justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
   }
@@ -56,5 +74,8 @@ export const CoffeesMenu = styled.section`
 
     display: flex;
     align-items: center;
+    text-align: center;
   }
+  
+  
 `

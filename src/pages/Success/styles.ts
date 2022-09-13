@@ -22,6 +22,16 @@ export const SuccessContainer = styled.section`
     display: flex;
     justify-content: space-between;
   }
+
+  @media (max-width: 1024px){
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    >div{
+      flex-direction: column-reverse;
+    }
+  }
 `
 
 export const DeliveryStatsContainer = styled.div`
@@ -91,6 +101,24 @@ export const DeliveryStatsContainer = styled.div`
       font-size: 1.6rem;
       line-height: 130%;
       color: ${props => props.theme.baseText};
+    }
+  }
+
+  @media (max-width: 1024px){
+    width: 100%;
+    margin-bottom: 5rem;
+    padding: 3rem;
+  }
+
+  @media (max-width: 768px){
+
+    >div{
+      align-items: center;
+      >div{
+        p,strong{
+          font-size: 1.4rem;
+        }
+      }
     }
   }
 `

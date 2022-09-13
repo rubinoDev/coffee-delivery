@@ -40,4 +40,8 @@ export const PaymentButtonContainer = styled.button<PaymentButtonContainerProps>
       background: ${props => props.theme.purpleLight};
     }
   `}
+
+  @media (max-width: 768px){
+    justify-content: center;
+  }
 `

@@ -8,4 +8,24 @@ export const PaymentContainer = styled(BaseCheckoutContainer)`
     display: flex; 
     gap: 1.2rem;
   }
+  @media (max-width: 768px){
+    width: 100%;
+
+    header{
+      div{
+        h4{
+          font-size: 1.5rem;
+        }
+        p{
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    >div{
+      flex-direction: column;
+      gap: 4rem;
+
+    }
+  }
 `

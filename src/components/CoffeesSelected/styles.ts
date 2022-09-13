@@ -62,6 +62,11 @@ export const CoffeesSelectedContainer = styled(BaseCheckoutContainer)`
         }
     }
   }
+
+  @media (max-width: 1024px){
+
+    justify-content: center;
+  }
 `
 
 export const CoffeeSelected = styled.div`
