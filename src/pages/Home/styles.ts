@@ -77,5 +77,13 @@ export const CoffeesMenu = styled.section`
     text-align: center;
   }
   
+  @media (max-width: 1024px){
+    width: 100%;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   
 `
