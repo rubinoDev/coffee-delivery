@@ -81,7 +81,7 @@ export function Form (){
 
           <datalist id="uf-suggestions">
             {ufStatesList.map(state =>{
-                return  <option value={state}/>
+                return  <option key={state} value={state}/>
               }
             )}
           </datalist>

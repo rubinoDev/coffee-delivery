@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useReducer} from "react";
 
 import { CoffeesApi } from '../../coffeesApi'
 
@@ -26,42 +26,64 @@ interface ProductsContextProviderProps{
 export const ProductsContext = createContext({} as ProductsContextType)
 
 export function ProductsContextProvider({children}: ProductsContextProviderProps){
-  const [products, setProducts] = useState<Coffee[]>([]);
+  const allCoffees = CoffeesApi ;
 
-  useEffect(() => {
-    setProducts(CoffeesApi.map(product => product))
-  },[])
+  const [products, dispatch] = useReducer((state: Coffee[], action: any) => {
+
+    switch(action.type){
+      case 'ADD_PRODUCT_QUANTITY' :
+        return state.map(product =>{
+          const currentQuantity = product.quantity;
+          return product.id === action.payload.id ?
+          {...product, quantity: currentQuantity + 1} 
+          : product
+        }) 
+
+      case 'REMOVE_PRODUCT_QUANTITY' :
+        return state.map(product =>{
+          const currentQuantity = product.quantity;
+          return product.id === action.payload.id && currentQuantity > 1?
+          {...product, quantity: currentQuantity - 1} 
+          : product
+        }) 
+
+      case 'RESET_PRODUCT_QUANTITY' :
+        return state.map(product =>{
+          return product.id === action.payload.id ? 
+          {...product, quantity: 1} 
+          : product
+        })
+
+      default : return state;
+      
+    }
+  }, allCoffees);
 
   function handleAddProductQuantity(id:number){
-    setProducts(prevState =>
-      prevState.map(product =>{
-        const currentQuantity = product.quantity;
-        return product.id === id ?
-        {...product, quantity: currentQuantity + 1} 
-        : product
-      }) 
-    )
+    dispatch({
+      type: 'ADD_PRODUCT_QUANTITY',
+      payload: {
+        id
+      }
+    })
   }
 
   function handleRemoveProductQuantity(id:number){
-    setProducts(prevState =>
-      prevState.map(product =>{
-        const currentQuantity = product.quantity;
-        return product.id === id && currentQuantity > 1?
-        {...product, quantity: currentQuantity - 1} 
-        : product
-      }) 
-    )
+    dispatch({
+      type: 'REMOVE_PRODUCT_QUANTITY',
+      payload: {
+        id
+      }
+    })
   }
 
   function resetProductQuantity(id : number){
-    setProducts(prevState =>
-      prevState.map(product =>{
-        return product.id === id ? 
-        {...product, quantity: 1} 
-        : product
-      })
-    )
+    dispatch({
+      type: 'RESET_PRODUCT_QUANTITY',
+      payload: {
+        id
+      }
+    })
   }
 
   return(

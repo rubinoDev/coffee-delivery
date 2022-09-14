@@ -27,7 +27,13 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-box-shadow: 0 0 0 30px #EDEDED inset !important;
   }
 
+  
+
   @media (max-width: 768px){
+    img{
+      object-fit: cover;
+    }
+
     html{
       font-size: 50%;
     }
