@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useReducer} from "react";
 
 import { CoffeesApi } from '../../coffeesApi'
+import { ActionTypes } from "../../reducers/products/actions";
+import { productsReducer } from "../../reducers/products/reducer";
 
 export interface Coffee{
   id: number;
@@ -28,40 +30,13 @@ export const ProductsContext = createContext({} as ProductsContextType)
 export function ProductsContextProvider({children}: ProductsContextProviderProps){
   const allCoffees = CoffeesApi ;
 
-  const [products, dispatch] = useReducer((state: Coffee[], action: any) => {
-
-    switch(action.type){
-      case 'ADD_PRODUCT_QUANTITY' :
-        return state.map(product =>{
-          const currentQuantity = product.quantity;
-          return product.id === action.payload.id ?
-          {...product, quantity: currentQuantity + 1} 
-          : product
-        }) 
-
-      case 'REMOVE_PRODUCT_QUANTITY' :
-        return state.map(product =>{
-          const currentQuantity = product.quantity;
-          return product.id === action.payload.id && currentQuantity > 1?
-          {...product, quantity: currentQuantity - 1} 
-          : product
-        }) 
-
-      case 'RESET_PRODUCT_QUANTITY' :
-        return state.map(product =>{
-          return product.id === action.payload.id ? 
-          {...product, quantity: 1} 
-          : product
-        })
-
-      default : return state;
-      
-    }
-  }, allCoffees);
+  const [products, dispatch] = useReducer(
+  productsReducer
+  , allCoffees);
 
   function handleAddProductQuantity(id:number){
     dispatch({
-      type: 'ADD_PRODUCT_QUANTITY',
+      type: ActionTypes.ADD_PRODUCT_QUANTITY,
       payload: {
         id
       }
@@ -70,7 +45,7 @@ export function ProductsContextProvider({children}: ProductsContextProviderProps
 
   function handleRemoveProductQuantity(id:number){
     dispatch({
-      type: 'REMOVE_PRODUCT_QUANTITY',
+      type: ActionTypes.REMOVE_PRODUCT_QUANTITY,
       payload: {
         id
       }
@@ -79,7 +54,7 @@ export function ProductsContextProvider({children}: ProductsContextProviderProps
 
   function resetProductQuantity(id : number){
     dispatch({
-      type: 'RESET_PRODUCT_QUANTITY',
+      type: ActionTypes.RESET_PRODUCT_QUANTITY,
       payload: {
         id
       }

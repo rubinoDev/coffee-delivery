@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useContext, useEffect, useReducer } from "react";
 
 import { toast } from "react-toastify";
+import { ActionTypes, addProductQuantityInCartAction, addProductToCartAction, removeProductFromCartAction, removeProductQuantityInCartAction } from "../../reducers/cart/actions";
+import { cartReducer } from "../../reducers/cart/reducer";
 
 import { Coffee, ProductsContext } from "../ProductsContext/ProductsContext";
 
@@ -27,40 +29,10 @@ export function CartContextProvider({children}: CartContextProviderProps){
         return JSON.parse(storagedCart);
       }}
 
-  const [cart, dispatch] = useReducer((state: Coffee[] ,action: any) =>{
-
-    switch(action.type){
-      case 'ADD_PRODUCT_TO_CART' :
-        return action.payload.productIsAlreadyInCart ? 
-        state.map(item =>{
-          const quantityUpdated = item.quantity + action.payload.productsFiltered[0].quantity;
-          return item.id === action.payload.productsFiltered[0].id ?
-          {...item, quantity: quantityUpdated}
-          : item 
-        }) : [...state, action.payload.productsFiltered[0]]
-
-        case 'ADD_PRODUCT_QUANTITY_IN_CART' :
-          return state.map(item =>{
-            const currentQuantity = item.quantity
-            return item.id === action.payload.id ?
-            {...item, quantity: currentQuantity + 1} 
-            : item
-          }) 
-
-        case 'REMOVE_PRODUCT_QUANTITY_IN_CART':
-          return state.map(item =>{
-            const currentQuantity = item.quantity
-            return item.id === action.payload.id  && item.quantity > 1?
-            {...item, quantity: currentQuantity - 1} 
-            : item
-          })
-        
-        case 'REMOVE_PRODUCT_FROM_CART' :
-        return action.payload.productsFiltered
-        
-        default: return state;
-    }
-  }, [], initCartState)
+  const [cart, dispatch] = useReducer(
+    cartReducer, 
+    [], 
+    initCartState)
 
     console.log(cart)
 
@@ -69,13 +41,7 @@ export function CartContextProvider({children}: CartContextProviderProps){
     const productsFiltered = products.filter( product => product.id === id);
     const productIsAlreadyInCart = updatedCart.find(product => product.id === productsFiltered[0].id);
 
-    dispatch({
-      type: 'ADD_PRODUCT_TO_CART',
-      payload: {
-        productIsAlreadyInCart,
-        productsFiltered,
-      }
-    })
+    dispatch(addProductToCartAction(productsFiltered, productIsAlreadyInCart ))
     
     resetProductQuantity(id)
 
@@ -83,32 +49,17 @@ export function CartContextProvider({children}: CartContextProviderProps){
   }
 
   function handleAddProductQuantityInCart(id: number){
-    dispatch({
-      type: 'ADD_PRODUCT_QUANTITY_IN_CART',
-      payload: {
-        id
-      }
-    })
+    dispatch(addProductQuantityInCartAction(id))
   }
 
   function handleRemoveProductQuantityInCart(id: number){
-    dispatch({
-      type: 'REMOVE_PRODUCT_QUANTITY_IN_CART',
-      payload: {
-        id
-      }
-    })
+    dispatch(removeProductQuantityInCartAction(id))
   }
 
   function handleRemoveProductFromCart(id: number){
     const productsFiltered = cart.filter(item => item.id !== id);
 
-    dispatch({
-      type: 'REMOVE_PRODUCT_FROM_CART',
-      payload: {
-        productsFiltered
-      }
-    })
+    dispatch(removeProductFromCartAction(productsFiltered))
   }
 
   useEffect(() =>{
