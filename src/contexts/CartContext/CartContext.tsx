@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useReducer } from "react";
 
 import { toast } from "react-toastify";
-import { ActionTypes, addProductQuantityInCartAction, addProductToCartAction, removeProductFromCartAction, removeProductQuantityInCartAction } from "../../reducers/cart/actions";
+import { addProductQuantityInCartAction, addProductToCartAction, removeProductFromCartAction, removeProductQuantityInCartAction } from "../../reducers/cart/actions";
 import { cartReducer } from "../../reducers/cart/reducer";
 
 import { Coffee, ProductsContext } from "../ProductsContext/ProductsContext";
@@ -57,7 +57,8 @@ export function CartContextProvider({children}: CartContextProviderProps){
   }
 
   function handleRemoveProductFromCart(id: number){
-    const productsFiltered = cart.filter(item => item.id !== id);
+    const cartUpdated = [...cart];
+    const productsFiltered = cartUpdated.filter(item => item.id !== id);
 
     dispatch(removeProductFromCartAction(productsFiltered))
   }

@@ -1,8 +1,6 @@
 import { Coffee } from "../../contexts/ProductsContext/ProductsContext";
 import { ActionTypes } from "./actions";
 
-
-
 export function cartReducer(state: Coffee[] ,action: any){
 
   switch(action.type){
