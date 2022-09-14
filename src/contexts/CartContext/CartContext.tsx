@@ -34,8 +34,6 @@ export function CartContextProvider({children}: CartContextProviderProps){
     [], 
     initCartState)
 
-    console.log(cart)
-
   function handleAddProductToCart(id: number){
     const updatedCart = [...cart];
     const productsFiltered = products.filter( product => product.id === id);
