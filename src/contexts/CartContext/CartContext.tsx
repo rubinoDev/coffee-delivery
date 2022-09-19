@@ -27,6 +27,8 @@ export function CartContextProvider({children}: CartContextProviderProps){
     const storagedCart = localStorage.getItem('@CoffeeDelivery:cart')
       if (storagedCart) {
         return JSON.parse(storagedCart);
+      }else {
+        return []
       }}
 
   const [cart, dispatch] = useReducer(
